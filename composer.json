@@ -1,0 +1,21 @@
+{
+    "name": "harlam/ami-events",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nikolay Harlamov",
+            "email": "harlamov.nikolay@yandex.ru"
+        }
+    ],
+    "require": {
+        "marcelog/pami": "^2.0",
+        "endclothing/prometheus_client_php": "^1.0",
+        "pimple/pimple": "^3.2"
+    },
+    "autoload":{
+        "psr-4": {
+            "App\\": "src"
+        }
+    }
+}
