@@ -1,28 +1,18 @@
 #!/usr/bin/php
 <?php
 
-use PAMI\Client\Impl\ClientImpl;
+use App\Core;
 
-require_once 'vendor/autoload.php';
+require_once __DIR__ . '/src/Config/bootstrap.php';
 
 /**
  * @var \Pimple\Psr11\Container $container
  */
-$container = require_once 'container.php';
+$container = require_once APP_ROOT . '/src/Config/container.php';
 
-/**
- * @var ClientImpl $client
- */
-$client = $container->get(ClientImpl::class);
+$app = new Core($container);
 
-$client->open();
+$app->run();
 
-$running = true;
-
-while($running) {
-    $client->process();
-    usleep(1000);
-}
-
-$client->close();
 print_r("Connection closed\n");
+exit(1);
