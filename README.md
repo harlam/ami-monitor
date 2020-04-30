@@ -14,7 +14,7 @@ Install
 
 - Create container
 
-`docker run -d -v appvolume:/app --name=ami-monitor --network=bridge --add-host=callcenter-web.callback.local:192.168.11.101 ami-monitor:latest php ./connect.php`
+`docker run -d -v appvolume:/app --name=ami-monitor --network=bridge --restart=unless-stopped --add-host=callcenter-web.callback.local:192.168.11.101 ami-monitor:latest php ./connect.php`
 
 - Manage container
 
