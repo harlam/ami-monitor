@@ -48,6 +48,7 @@ class RegisterCallHandler implements IEventListener
                 'content' => http_build_query([
                     'uid' => $message->getUniqueid(),
                     'a_number' => $message->getCallerIDNum(),
+                    'a_name' => $message->getCallerIDName(),
                     'b_number' => $message->getConnectedLineNum(),
                     'destination_cid' => $message->getDestCallerIDNum(),
                 ])
