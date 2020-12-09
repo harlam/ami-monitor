@@ -34,6 +34,7 @@ class Core
                 $client->process();
                 usleep(1000);
             } catch (ClientException $clientException) {
+                print_r("{$clientException->getMessage()}, try reconnect\n");
                 $client->close();
                 sleep(5);
                 $client->open();
