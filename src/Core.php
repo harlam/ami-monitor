@@ -3,6 +3,7 @@
 namespace App;
 
 use Exception;
+use PAMI\Client\Exception\ClientException;
 use PAMI\Client\Impl\ClientImpl;
 use Psr\Container\ContainerInterface;
 
@@ -32,6 +33,10 @@ class Core
             try {
                 $client->process();
                 usleep(1000);
+            } catch (ClientException $clientException) {
+                $client->close();
+                sleep(5);
+                $client->open();
             } catch (Exception $exception) {
                 print_r("{$exception->getMessage()}, File: {$exception->getFile()}, Line: {$exception->getLine()}\n");
             }
