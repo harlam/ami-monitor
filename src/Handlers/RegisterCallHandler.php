@@ -46,7 +46,7 @@ class RegisterCallHandler implements IEventListener
                 'header' => "Content-type: application/x-www-form-urlencoded\r\n",
                 'method' => 'POST',
                 'content' => http_build_query([
-                    'uid' => $message->getUniqueid(),
+                    'uid' => $message->getCallerIDNum() . ':' . $message->getConnectedLineNum() . ':' . $message->getUniqueid(),
                     'a_number' => $message->getCallerIDNum(),
                     'a_name' => $message->getCallerIDName(),
                     'b_number' => $message->getConnectedLineNum(),
